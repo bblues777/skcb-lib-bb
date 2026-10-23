@@ -10,12 +10,11 @@
       "types": "./dist/index.d.ts",
       "import": "./dist/index.js"
     },
-    "./selective.json": "./selective.json",
+    "./selective.json": "./dist/selective.json",
     "./*": "./dist/*"
   },
   "files": [
     "dist",
-    "selective.json",
     "README.md"
   ],
   "scripts": {

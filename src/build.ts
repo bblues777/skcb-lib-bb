@@ -795,15 +795,6 @@ ${southPlusCallbackEntries.join('\n')}
   const selectiveJson = JSON.stringify(selective, null, 2) + '\n';
   await writeFile(path.join(distDir, 'selective.json'), selectiveJson, 'utf8');
 
-  // Also write selective.json at repository root with dist/ prefix
-  const rootSelective = {
-    ...selective,
-    entries: Object.fromEntries(
-      Object.entries(selective.entries).map(([k, v]) => [k, { ...v, entry: `dist/${v.entry}` }])
-    )
-  };
-  await writeFile(path.join(rootDir, 'selective.json'), JSON.stringify(rootSelective, null, 2) + '\n', 'utf8');
-
   // 17. index.js & index.d.ts
   const indexJs = `import selective from './selective.json' with { type: 'json' };
 export { selective };

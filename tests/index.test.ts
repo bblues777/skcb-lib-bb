@@ -24,11 +24,6 @@ test('@skcb/lib-bb: selective.json complies with skcb manifest schema', async ()
   const distManifest = JSON.parse(await readFile(path.join(distDir, 'selective.json'), 'utf8'));
   const validDist = validate(distManifest);
   assert.ok(validDist, `dist/selective.json schema errors: ${JSON.stringify(validate.errors)}`);
-
-  // Validate root selective.json
-  const rootManifest = JSON.parse(await readFile(path.join(projectRoot, 'selective.json'), 'utf8'));
-  const validRoot = validate(rootManifest);
-  assert.ok(validRoot, `root selective.json schema errors: ${JSON.stringify(validate.errors)}`);
 });
 
 test('@skcb/lib-bb: all entry files exist and export expected callbacks', async () => {
