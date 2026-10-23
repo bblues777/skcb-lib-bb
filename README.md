@@ -1,24 +1,25 @@
 # @skcb/lib-bb
 
-> SurfingKeys Config Builder (`skcb`) 第三方扩展库：二次元与垂直社区站点快捷工具集（F95zone, South Plus, 2DFan, VNDB, 禁忌书屋）。
+> SurfingKeys Config Builder (`skcb`) 第三方扩展库：二次元与垂直社区站点快捷工具集（F95zone, South Plus, 2DFan, VNDB, 禁忌书屋, DLsite, Kemono, Coomer, E-Hentai）。
 
 [![Test Status](https://img.shields.io/badge/tests-passing-brightgreen.svg)]()
 [![License](https://img.shields.io/badge/license-MIT-blue.svg)]()
 
 ## 📖 简介
 
-`@skcb/lib-bb` 是针对 SurfingKeys 配置构建器 (`skcb`) 的官方第三方功能模组库，提供垂直 ACG、Galgame/视觉小说及社区站点的搜索引擎与站内深度导航按键。
+`@skcb/lib-bb` 是针对 SurfingKeys 配置构建器 (`skcb`) 的官方第三方功能模组库，提供垂直 ACG、Galgame/视觉小说、二次元创作者赞助及社区站点的搜索引擎与站内深度导航按键。
 
 ### ✨ 核心特性
 
-- **统一搜索前缀**：所有站点搜索引擎统一以 `\` 作为别名前缀（如 `\fz`, `\sp`）。配合 `skcb` 默认搜索引导键 `a`，在浏览器中键入 `a\fz` 即可唤起对应搜索，键入 `ca\fz` 直接从系统剪贴板搜索。
+- **统一搜索前缀**：所有站点搜索引擎统一以 `\` 作为别名前缀（如 `\fz`, `\sp`, `\dl`, `\km`）。配合 `skcb` 默认搜索引导键 `a`，在浏览器中键入 `a\fz` 即可唤起对应搜索，键入 `ca\fz` 直接从系统剪贴板搜索。
 - **南+全量镜像支持**：内置支持主站 `south-plus.net` 及 11 个常用镜像域名（`south-plus.org`、`white-plus.net`、`north-plus.net`、`level-plus.net`、`soul-plus.net`、`snow-plus.net`、`spring-plus.net`、`summer-plus.net`、`blue-plus.net`、`imoutolove.me`、`east-plus.net`），在任何镜像下均可自动激活板块导航按键。
+- **创作者赞助与画廊支持**：新增对 DLsite、Kemono (`kemono.su` / `kemono.party`)、Coomer (`coomer.su` / `coomer.party`) 与 E-Hentai / ExHentai 的搜索与快速导航。
 - **安全防污染**：站内导航使用 site leader 引导（默认 `<Space>`），不占用页面原生打字与浏览按键；页面跳转基于当前 origin 相对路径，杜绝跨域跳转。
 - **双语元数据**：所有 Feature 与 Contribution 均提供完整的中英双语描述，原生支持 `skcb` 与 `skcb-ui` 的多语言配置展示。
 
 ---
 
-## 🎯 首批支持站点与快捷键对照表
+## 🎯 支持站点与快捷键对照表
 
 ### 1. 搜索引擎 (Search Engines)
 
@@ -31,6 +32,10 @@
 | **2DFan** | `\2df` | `a\2df` | `ca\2df` | `https://www.2dfan.com/subjects/search?keyword=` |
 | **VNDB** | `\vn` | `a\vn` | `ca\vn` | `https://vndb.org/v?sq=` |
 | **禁忌书屋 (Cool18)** | `\sw` | `a\sw` | `ca\sw` | `https://www.cool18.com/bbs4/index.php?app=forum&act=threadsearch&keywords=` |
+| **DLsite** | `\dl` | `a\dl` | `ca\dl` | `https://www.dlsite.com/home/fsr/=/keyword/` |
+| **Kemono** | `\km` | `a\km` | `ca\km` | `https://kemono.su/posts?q=` |
+| **Coomer** | `\co` | `a\co` | `ca\co` | `https://coomer.su/posts?q=` |
+| **E-Hentai** | `\eh` | `a\eh` | `ca\eh` | `https://e-hentai.org/?f_search=` |
 
 > **提示**：快捷键开头的 `a` 和 `c` 由当前 profile 的 `leaders.search` 决定（`skcb` 预设默认为 `a`）。
 
@@ -42,7 +47,6 @@
 
 #### 🎮 F95zone (`f95zone.to`)
 - 模组 ID：`bb/actions.f95zone`
-- 激活域名：`f95zone.to`
 
 | 快捷键 | 功能描述 | 目标页面 |
 | :---: | :--- | :--- |
@@ -61,6 +65,40 @@
 | `<Space>a` | AI交流 (beta) | `/thread.php?fid-208.html` (fid 208) |
 | `<Space>b` | 汉化本发布区 | `/thread.php?fid-36.html` (fid 36) |
 | `<Space>x` | 原创小说区 | `/thread.php?fid-195.html` (fid 195) |
+
+#### 🛍️ DLsite (`dlsite.com`)
+- 模组 ID：`bb/actions.dlsite`
+
+| 快捷键 | 功能描述 | 目标页面 |
+| :---: | :--- | :--- |
+| `<Space>h` | Maniax 首页 | `https://www.dlsite.com/maniax/` |
+| `<Space>r` | 作品排行榜 (Ranking) | `https://www.dlsite.com/maniax/ranking/` |
+| `<Space>n` | 最新发售作品 (New) | `https://www.dlsite.com/maniax/new/` |
+
+#### 🐾 Kemono (`kemono.su` / `kemono.party`)
+- 模组 ID：`bb/actions.kemono`
+
+| 快捷键 | 功能描述 | 目标页面 |
+| :---: | :--- | :--- |
+| `<Space>h` | 创作者动态流 (Posts) | `/posts` |
+| `<Space>a` | 创作者列表 (Artists) | `/artists` |
+
+#### 🍸 Coomer (`coomer.su` / `coomer.party`)
+- 模组 ID：`bb/actions.coomer`
+
+| 快捷键 | 功能描述 | 目标页面 |
+| :---: | :--- | :--- |
+| `<Space>h` | 动态流 (Posts) | `/posts` |
+| `<Space>a` | 创作者列表 (Artists) | `/artists` |
+
+#### 🐼 E-Hentai / ExHentai (`e-hentai.org` / `exhentai.org`)
+- 模组 ID：`bb/actions.e-hentai`
+
+| 快捷键 | 功能描述 | 目标页面 |
+| :---: | :--- | :--- |
+| `<Space>h` | 画廊首页 (Home) | `https://e-hentai.org/` (或 ExHentai 首页) |
+| `<Space>p` | 热门画廊 (Popular) | `https://e-hentai.org/popular` |
+| `<Space>w` | 关注标签动态 (Watched) | `https://e-hentai.org/watched` |
 
 ---
 
@@ -102,7 +140,15 @@
     "bb/actions.south-plus",
     "bb/search-engines.2dfan",
     "bb/search-engines.vndb",
-    "bb/search-engines.cool18"
+    "bb/search-engines.cool18",
+    "bb/search-engines.dlsite",
+    "bb/actions.dlsite",
+    "bb/search-engines.kemono",
+    "bb/actions.kemono",
+    "bb/search-engines.coomer",
+    "bb/actions.coomer",
+    "bb/search-engines.e-hentai",
+    "bb/actions.e-hentai"
   ]
 }
 ```

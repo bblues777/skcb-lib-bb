@@ -66,7 +66,11 @@ test('@skcb/lib-bb: unified prefix "\\" for all search engines', async () => {
     'search-engines.south-plus': { alias: '\\sp', name: 'south-plus', search: 'https://south-plus.net/search.php?step=2&keyword=' },
     'search-engines.2dfan': { alias: '\\2df', name: '2dfan', search: 'https://www.2dfan.com/subjects/search?keyword=' },
     'search-engines.vndb': { alias: '\\vn', name: 'vndb', search: 'https://vndb.org/v?sq=' },
-    'search-engines.cool18': { alias: '\\sw', name: 'cool18-sw', search: 'https://www.cool18.com/bbs4/index.php?app=forum&act=threadsearch&keywords=' }
+    'search-engines.cool18': { alias: '\\sw', name: 'cool18-sw', search: 'https://www.cool18.com/bbs4/index.php?app=forum&act=threadsearch&keywords=' },
+    'search-engines.dlsite': { alias: '\\dl', name: 'dlsite', search: 'https://www.dlsite.com/home/fsr/=/keyword/' },
+    'search-engines.kemono': { alias: '\\km', name: 'kemono', search: 'https://kemono.su/posts?q=' },
+    'search-engines.coomer': { alias: '\\co', name: 'coomer', search: 'https://coomer.su/posts?q=' },
+    'search-engines.e-hentai': { alias: '\\eh', name: 'e-hentai', search: 'https://e-hentai.org/?f_search=' }
   };
 
   for (const [key, expected] of Object.entries(expectedSearches)) {
@@ -143,6 +147,77 @@ test('@skcb/lib-bb: south-plus actions support 12 mirror domains with 5 core boa
   assert.equal(entry.contributions.length, 60);
 });
 
+test('@skcb/lib-bb: dlsite actions support home, ranking, and new releases', async () => {
+  const manifest = JSON.parse(await readFile(path.join(distDir, 'selective.json'), 'utf8'));
+  const entry = manifest.entries['actions.dlsite'];
+  assert.ok(entry);
+
+  const home = entry.contributions.find((c: any) => c.id === 'home');
+  assert.ok(home);
+  assert.equal(home.alias, 'h');
+  assert.equal(home.domain, 'dlsite.com');
+
+  const ranking = entry.contributions.find((c: any) => c.id === 'ranking');
+  assert.ok(ranking);
+  assert.equal(ranking.alias, 'r');
+  assert.equal(ranking.domain, 'dlsite.com');
+
+  const newReleases = entry.contributions.find((c: any) => c.id === 'new');
+  assert.ok(newReleases);
+  assert.equal(newReleases.alias, 'n');
+  assert.equal(newReleases.domain, 'dlsite.com');
+});
+
+test('@skcb/lib-bb: kemono and coomer actions support posts and artists', async () => {
+  const manifest = JSON.parse(await readFile(path.join(distDir, 'selective.json'), 'utf8'));
+
+  for (const site of ['kemono', 'coomer']) {
+    const entry = manifest.entries[`actions.${site}`];
+    assert.ok(entry);
+
+    const home = entry.contributions.find((c: any) => c.id === 'home');
+    assert.ok(home);
+    assert.equal(home.alias, 'h');
+    assert.equal(home.domain, `${site}.su`);
+
+    const artists = entry.contributions.find((c: any) => c.id === 'artists');
+    assert.ok(artists);
+    assert.equal(artists.alias, 'a');
+    assert.equal(artists.domain, `${site}.su`);
+
+    const homeParty = entry.contributions.find((c: any) => c.id === 'home-party');
+    assert.ok(homeParty);
+    assert.equal(homeParty.alias, 'h');
+    assert.equal(homeParty.domain, `${site}.party`);
+  }
+});
+
+test('@skcb/lib-bb: e-hentai actions support home, popular, and watched for both e-hentai and exhentai', async () => {
+  const manifest = JSON.parse(await readFile(path.join(distDir, 'selective.json'), 'utf8'));
+  const entry = manifest.entries['actions.e-hentai'];
+  assert.ok(entry);
+
+  const home = entry.contributions.find((c: any) => c.id === 'home');
+  assert.ok(home);
+  assert.equal(home.alias, 'h');
+  assert.equal(home.domain, 'e-hentai.org');
+
+  const popular = entry.contributions.find((c: any) => c.id === 'popular');
+  assert.ok(popular);
+  assert.equal(popular.alias, 'p');
+  assert.equal(popular.domain, 'e-hentai.org');
+
+  const watched = entry.contributions.find((c: any) => c.id === 'watched');
+  assert.ok(watched);
+  assert.equal(watched.alias, 'w');
+  assert.equal(watched.domain, 'e-hentai.org');
+
+  const homeEx = entry.contributions.find((c: any) => c.id === 'home-ex');
+  assert.ok(homeEx);
+  assert.equal(homeEx.alias, 'h');
+  assert.equal(homeEx.domain, 'exhentai.org');
+});
+
 test('@skcb/lib-bb: end-to-end integration with @skcb/core loader and registration', async () => {
   const { loadMetadataCatalog, registrationPlan } = await import('@skcb/core');
 
@@ -154,7 +229,7 @@ test('@skcb/lib-bb: end-to-end integration with @skcb/core loader and registrati
 
   const catalog = await loadMetadataCatalog(mockCtx);
   const bbEntries = catalog.entries.filter((e: any) => e.id.startsWith('bb/'));
-  assert.equal(bbEntries.length, 7, 'Must resolve all 7 features in bb namespace');
+  assert.equal(bbEntries.length, 15, 'Must resolve all 15 features in bb namespace');
 
   // Test profile resolution and registration plan
   const activeContribs = bbEntries.flatMap((e: any) =>
@@ -179,24 +254,23 @@ test('@skcb/lib-bb: end-to-end integration with @skcb/core loader and registrati
   // Check generated keys for search engines
   const fzSearch = plan.registrations.find((r: any) => r.id === 'search' && r.featureId === 'bb/search-engines.f95zone');
   assert.ok(fzSearch);
-  assert.deepEqual(fzSearch.keys, ['a\\fz', 'ca\\fz'], 'f95zone search key must be a\\fz and ca\\fz');
+  assert.deepEqual(fzSearch.keys, ['a\\fz', 'ca\\fz']);
 
-  const spSearch = plan.registrations.find((r: any) => r.id === 'search' && r.featureId === 'bb/search-engines.south-plus');
-  assert.ok(spSearch);
-  assert.deepEqual(spSearch.keys, ['a\\sp', 'ca\\sp'], 'south-plus search key must be a\\sp and ca\\sp');
+  const dlSearch = plan.registrations.find((r: any) => r.id === 'search' && r.featureId === 'bb/search-engines.dlsite');
+  assert.ok(dlSearch);
+  assert.deepEqual(dlSearch.keys, ['a\\dl', 'ca\\dl']);
 
-  const cool18Search = plan.registrations.find((r: any) => r.id === 'search' && r.featureId === 'bb/search-engines.cool18');
-  assert.ok(cool18Search);
-  assert.deepEqual(cool18Search.keys, ['a\\sw', 'ca\\sw'], 'cool18 search key must be a\\sw and ca\\sw');
+  const kmSearch = plan.registrations.find((r: any) => r.id === 'search' && r.featureId === 'bb/search-engines.kemono');
+  assert.ok(kmSearch);
+  assert.deepEqual(kmSearch.keys, ['a\\km', 'ca\\km']);
+
+  const ehSearch = plan.registrations.find((r: any) => r.id === 'search' && r.featureId === 'bb/search-engines.e-hentai');
+  assert.ok(ehSearch);
+  assert.deepEqual(ehSearch.keys, ['a\\eh', 'ca\\eh']);
 
   // Check site actions keys
-  const fzHome = plan.registrations.find((r: any) => r.id === 'home' && r.featureId === 'bb/actions.f95zone');
-  assert.ok(fzHome);
-  assert.deepEqual(fzHome.keys, ['<Space>h']);
-  assert.ok(fzHome.pattern?.includes('f95zone\\.to'));
-
-  const spChaGuan = plan.registrations.find((r: any) => r.id === 'cha-guan' && r.featureId === 'bb/actions.south-plus');
-  assert.ok(spChaGuan);
-  assert.deepEqual(spChaGuan.keys, ['<Space>c']);
-  assert.ok(spChaGuan.pattern?.includes('south-plus\\.net'));
+  const dlRanking = plan.registrations.find((r: any) => r.id === 'ranking' && r.featureId === 'bb/actions.dlsite');
+  assert.ok(dlRanking);
+  assert.deepEqual(dlRanking.keys, ['<Space>r']);
+  assert.ok(dlRanking.pattern?.includes('dlsite\\.com'));
 });
