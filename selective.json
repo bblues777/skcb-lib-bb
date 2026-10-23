@@ -1,0 +1,840 @@
+{
+  "schemaVersion": 1,
+  "namespace": "bb",
+  "entries": {
+    "actions.f95zone": {
+      "entry": "dist/actions/f95zone.js",
+      "description": {
+        "en": "F95zone game portal navigation",
+        "zh-CN": "F95zone 游戏社区页面快捷导航"
+      },
+      "requires": [],
+      "capabilities": [
+        "core.openLink"
+      ],
+      "contributions": [
+        {
+          "id": "home",
+          "alias": "h",
+          "description": {
+            "en": "Go to F95zone home page",
+            "zh-CN": "跳转至 F95zone 首页"
+          },
+          "kind": "mapkey",
+          "domain": "f95zone.to",
+          "callbackRequired": true
+        },
+        {
+          "id": "trending",
+          "alias": "t",
+          "description": {
+            "en": "Open Trending Games",
+            "zh-CN": "跳转至 Trending Games 热门游戏"
+          },
+          "kind": "mapkey",
+          "domain": "f95zone.to",
+          "callbackRequired": true
+        },
+        {
+          "id": "latest-updates",
+          "alias": "u",
+          "description": {
+            "en": "Open Latest Updates",
+            "zh-CN": "跳转至 Latest Updates 最新更新"
+          },
+          "kind": "mapkey",
+          "domain": "f95zone.to",
+          "callbackRequired": true
+        }
+      ]
+    },
+    "search-engines.f95zone": {
+      "entry": "dist/search-engines/f95zone.js",
+      "description": {
+        "en": "F95zone game search",
+        "zh-CN": "F95zone 游戏与论坛搜索"
+      },
+      "requires": [],
+      "capabilities": [],
+      "contributions": [
+        {
+          "id": "search",
+          "kind": "search",
+          "alias": "\\fz",
+          "name": "f95zone",
+          "search": "https://f95zone.to/search/?q=",
+          "callbackRequired": true,
+          "description": {
+            "en": "F95zone game search",
+            "zh-CN": "F95zone 游戏搜索"
+          }
+        }
+      ]
+    },
+    "actions.south-plus": {
+      "entry": "dist/actions/south-plus.js",
+      "description": {
+        "en": "South Plus forum board navigation (supports all mirror domains)",
+        "zh-CN": "南+ (South Plus) 论坛常用板块快捷导航 (支持全量镜像域名)"
+      },
+      "requires": [],
+      "capabilities": [
+        "core.openLink"
+      ],
+      "contributions": [
+        {
+          "id": "home",
+          "alias": "h",
+          "description": {
+            "en": "Go to South Plus home page",
+            "zh-CN": "南+ 论坛首页"
+          },
+          "kind": "mapkey",
+          "domain": "south-plus.net",
+          "callbackRequired": true
+        },
+        {
+          "id": "cha-guan",
+          "alias": "c",
+          "description": {
+            "en": "Open Cha-Guan (Tea House, fid 9)",
+            "zh-CN": "南+ 茶馆综合讨论区 (fid 9)"
+          },
+          "kind": "mapkey",
+          "domain": "south-plus.net",
+          "callbackRequired": true
+        },
+        {
+          "id": "ai",
+          "alias": "a",
+          "description": {
+            "en": "Open AI Discussion (fid 208)",
+            "zh-CN": "南+ AI交流(beta) (fid 208)"
+          },
+          "kind": "mapkey",
+          "domain": "south-plus.net",
+          "callbackRequired": true
+        },
+        {
+          "id": "han-hua",
+          "alias": "b",
+          "description": {
+            "en": "Open Translated Doujinshi & CG (fid 36)",
+            "zh-CN": "南+ 汉化本发布区 (fid 36)"
+          },
+          "kind": "mapkey",
+          "domain": "south-plus.net",
+          "callbackRequired": true
+        },
+        {
+          "id": "xiao-shuo",
+          "alias": "x",
+          "description": {
+            "en": "Open Original Novels (fid 195)",
+            "zh-CN": "南+ 原创小说区 (fid 195)"
+          },
+          "kind": "mapkey",
+          "domain": "south-plus.net",
+          "callbackRequired": true
+        },
+        {
+          "id": "home-org",
+          "alias": "h",
+          "description": {
+            "en": "[South Plus (.org 镜像)] Go to South Plus home page",
+            "zh-CN": "[South Plus (.org 镜像)] 南+ 论坛首页"
+          },
+          "kind": "mapkey",
+          "domain": "south-plus.org",
+          "callbackRequired": true
+        },
+        {
+          "id": "cha-guan-org",
+          "alias": "c",
+          "description": {
+            "en": "[South Plus (.org 镜像)] Open Cha-Guan (Tea House, fid 9)",
+            "zh-CN": "[South Plus (.org 镜像)] 南+ 茶馆综合讨论区 (fid 9)"
+          },
+          "kind": "mapkey",
+          "domain": "south-plus.org",
+          "callbackRequired": true
+        },
+        {
+          "id": "ai-org",
+          "alias": "a",
+          "description": {
+            "en": "[South Plus (.org 镜像)] Open AI Discussion (fid 208)",
+            "zh-CN": "[South Plus (.org 镜像)] 南+ AI交流(beta) (fid 208)"
+          },
+          "kind": "mapkey",
+          "domain": "south-plus.org",
+          "callbackRequired": true
+        },
+        {
+          "id": "han-hua-org",
+          "alias": "b",
+          "description": {
+            "en": "[South Plus (.org 镜像)] Open Translated Doujinshi & CG (fid 36)",
+            "zh-CN": "[South Plus (.org 镜像)] 南+ 汉化本发布区 (fid 36)"
+          },
+          "kind": "mapkey",
+          "domain": "south-plus.org",
+          "callbackRequired": true
+        },
+        {
+          "id": "xiao-shuo-org",
+          "alias": "x",
+          "description": {
+            "en": "[South Plus (.org 镜像)] Open Original Novels (fid 195)",
+            "zh-CN": "[South Plus (.org 镜像)] 南+ 原创小说区 (fid 195)"
+          },
+          "kind": "mapkey",
+          "domain": "south-plus.org",
+          "callbackRequired": true
+        },
+        {
+          "id": "home-white",
+          "alias": "h",
+          "description": {
+            "en": "[White Plus 镜像] Go to South Plus home page",
+            "zh-CN": "[White Plus 镜像] 南+ 论坛首页"
+          },
+          "kind": "mapkey",
+          "domain": "white-plus.net",
+          "callbackRequired": true
+        },
+        {
+          "id": "cha-guan-white",
+          "alias": "c",
+          "description": {
+            "en": "[White Plus 镜像] Open Cha-Guan (Tea House, fid 9)",
+            "zh-CN": "[White Plus 镜像] 南+ 茶馆综合讨论区 (fid 9)"
+          },
+          "kind": "mapkey",
+          "domain": "white-plus.net",
+          "callbackRequired": true
+        },
+        {
+          "id": "ai-white",
+          "alias": "a",
+          "description": {
+            "en": "[White Plus 镜像] Open AI Discussion (fid 208)",
+            "zh-CN": "[White Plus 镜像] 南+ AI交流(beta) (fid 208)"
+          },
+          "kind": "mapkey",
+          "domain": "white-plus.net",
+          "callbackRequired": true
+        },
+        {
+          "id": "han-hua-white",
+          "alias": "b",
+          "description": {
+            "en": "[White Plus 镜像] Open Translated Doujinshi & CG (fid 36)",
+            "zh-CN": "[White Plus 镜像] 南+ 汉化本发布区 (fid 36)"
+          },
+          "kind": "mapkey",
+          "domain": "white-plus.net",
+          "callbackRequired": true
+        },
+        {
+          "id": "xiao-shuo-white",
+          "alias": "x",
+          "description": {
+            "en": "[White Plus 镜像] Open Original Novels (fid 195)",
+            "zh-CN": "[White Plus 镜像] 南+ 原创小说区 (fid 195)"
+          },
+          "kind": "mapkey",
+          "domain": "white-plus.net",
+          "callbackRequired": true
+        },
+        {
+          "id": "home-north",
+          "alias": "h",
+          "description": {
+            "en": "[North Plus 镜像] Go to South Plus home page",
+            "zh-CN": "[North Plus 镜像] 南+ 论坛首页"
+          },
+          "kind": "mapkey",
+          "domain": "north-plus.net",
+          "callbackRequired": true
+        },
+        {
+          "id": "cha-guan-north",
+          "alias": "c",
+          "description": {
+            "en": "[North Plus 镜像] Open Cha-Guan (Tea House, fid 9)",
+            "zh-CN": "[North Plus 镜像] 南+ 茶馆综合讨论区 (fid 9)"
+          },
+          "kind": "mapkey",
+          "domain": "north-plus.net",
+          "callbackRequired": true
+        },
+        {
+          "id": "ai-north",
+          "alias": "a",
+          "description": {
+            "en": "[North Plus 镜像] Open AI Discussion (fid 208)",
+            "zh-CN": "[North Plus 镜像] 南+ AI交流(beta) (fid 208)"
+          },
+          "kind": "mapkey",
+          "domain": "north-plus.net",
+          "callbackRequired": true
+        },
+        {
+          "id": "han-hua-north",
+          "alias": "b",
+          "description": {
+            "en": "[North Plus 镜像] Open Translated Doujinshi & CG (fid 36)",
+            "zh-CN": "[North Plus 镜像] 南+ 汉化本发布区 (fid 36)"
+          },
+          "kind": "mapkey",
+          "domain": "north-plus.net",
+          "callbackRequired": true
+        },
+        {
+          "id": "xiao-shuo-north",
+          "alias": "x",
+          "description": {
+            "en": "[North Plus 镜像] Open Original Novels (fid 195)",
+            "zh-CN": "[North Plus 镜像] 南+ 原创小说区 (fid 195)"
+          },
+          "kind": "mapkey",
+          "domain": "north-plus.net",
+          "callbackRequired": true
+        },
+        {
+          "id": "home-level",
+          "alias": "h",
+          "description": {
+            "en": "[Level Plus 镜像] Go to South Plus home page",
+            "zh-CN": "[Level Plus 镜像] 南+ 论坛首页"
+          },
+          "kind": "mapkey",
+          "domain": "level-plus.net",
+          "callbackRequired": true
+        },
+        {
+          "id": "cha-guan-level",
+          "alias": "c",
+          "description": {
+            "en": "[Level Plus 镜像] Open Cha-Guan (Tea House, fid 9)",
+            "zh-CN": "[Level Plus 镜像] 南+ 茶馆综合讨论区 (fid 9)"
+          },
+          "kind": "mapkey",
+          "domain": "level-plus.net",
+          "callbackRequired": true
+        },
+        {
+          "id": "ai-level",
+          "alias": "a",
+          "description": {
+            "en": "[Level Plus 镜像] Open AI Discussion (fid 208)",
+            "zh-CN": "[Level Plus 镜像] 南+ AI交流(beta) (fid 208)"
+          },
+          "kind": "mapkey",
+          "domain": "level-plus.net",
+          "callbackRequired": true
+        },
+        {
+          "id": "han-hua-level",
+          "alias": "b",
+          "description": {
+            "en": "[Level Plus 镜像] Open Translated Doujinshi & CG (fid 36)",
+            "zh-CN": "[Level Plus 镜像] 南+ 汉化本发布区 (fid 36)"
+          },
+          "kind": "mapkey",
+          "domain": "level-plus.net",
+          "callbackRequired": true
+        },
+        {
+          "id": "xiao-shuo-level",
+          "alias": "x",
+          "description": {
+            "en": "[Level Plus 镜像] Open Original Novels (fid 195)",
+            "zh-CN": "[Level Plus 镜像] 南+ 原创小说区 (fid 195)"
+          },
+          "kind": "mapkey",
+          "domain": "level-plus.net",
+          "callbackRequired": true
+        },
+        {
+          "id": "home-soul",
+          "alias": "h",
+          "description": {
+            "en": "[Soul Plus 镜像] Go to South Plus home page",
+            "zh-CN": "[Soul Plus 镜像] 南+ 论坛首页"
+          },
+          "kind": "mapkey",
+          "domain": "soul-plus.net",
+          "callbackRequired": true
+        },
+        {
+          "id": "cha-guan-soul",
+          "alias": "c",
+          "description": {
+            "en": "[Soul Plus 镜像] Open Cha-Guan (Tea House, fid 9)",
+            "zh-CN": "[Soul Plus 镜像] 南+ 茶馆综合讨论区 (fid 9)"
+          },
+          "kind": "mapkey",
+          "domain": "soul-plus.net",
+          "callbackRequired": true
+        },
+        {
+          "id": "ai-soul",
+          "alias": "a",
+          "description": {
+            "en": "[Soul Plus 镜像] Open AI Discussion (fid 208)",
+            "zh-CN": "[Soul Plus 镜像] 南+ AI交流(beta) (fid 208)"
+          },
+          "kind": "mapkey",
+          "domain": "soul-plus.net",
+          "callbackRequired": true
+        },
+        {
+          "id": "han-hua-soul",
+          "alias": "b",
+          "description": {
+            "en": "[Soul Plus 镜像] Open Translated Doujinshi & CG (fid 36)",
+            "zh-CN": "[Soul Plus 镜像] 南+ 汉化本发布区 (fid 36)"
+          },
+          "kind": "mapkey",
+          "domain": "soul-plus.net",
+          "callbackRequired": true
+        },
+        {
+          "id": "xiao-shuo-soul",
+          "alias": "x",
+          "description": {
+            "en": "[Soul Plus 镜像] Open Original Novels (fid 195)",
+            "zh-CN": "[Soul Plus 镜像] 南+ 原创小说区 (fid 195)"
+          },
+          "kind": "mapkey",
+          "domain": "soul-plus.net",
+          "callbackRequired": true
+        },
+        {
+          "id": "home-snow",
+          "alias": "h",
+          "description": {
+            "en": "[Snow Plus 镜像] Go to South Plus home page",
+            "zh-CN": "[Snow Plus 镜像] 南+ 论坛首页"
+          },
+          "kind": "mapkey",
+          "domain": "snow-plus.net",
+          "callbackRequired": true
+        },
+        {
+          "id": "cha-guan-snow",
+          "alias": "c",
+          "description": {
+            "en": "[Snow Plus 镜像] Open Cha-Guan (Tea House, fid 9)",
+            "zh-CN": "[Snow Plus 镜像] 南+ 茶馆综合讨论区 (fid 9)"
+          },
+          "kind": "mapkey",
+          "domain": "snow-plus.net",
+          "callbackRequired": true
+        },
+        {
+          "id": "ai-snow",
+          "alias": "a",
+          "description": {
+            "en": "[Snow Plus 镜像] Open AI Discussion (fid 208)",
+            "zh-CN": "[Snow Plus 镜像] 南+ AI交流(beta) (fid 208)"
+          },
+          "kind": "mapkey",
+          "domain": "snow-plus.net",
+          "callbackRequired": true
+        },
+        {
+          "id": "han-hua-snow",
+          "alias": "b",
+          "description": {
+            "en": "[Snow Plus 镜像] Open Translated Doujinshi & CG (fid 36)",
+            "zh-CN": "[Snow Plus 镜像] 南+ 汉化本发布区 (fid 36)"
+          },
+          "kind": "mapkey",
+          "domain": "snow-plus.net",
+          "callbackRequired": true
+        },
+        {
+          "id": "xiao-shuo-snow",
+          "alias": "x",
+          "description": {
+            "en": "[Snow Plus 镜像] Open Original Novels (fid 195)",
+            "zh-CN": "[Snow Plus 镜像] 南+ 原创小说区 (fid 195)"
+          },
+          "kind": "mapkey",
+          "domain": "snow-plus.net",
+          "callbackRequired": true
+        },
+        {
+          "id": "home-spring",
+          "alias": "h",
+          "description": {
+            "en": "[Spring Plus 镜像] Go to South Plus home page",
+            "zh-CN": "[Spring Plus 镜像] 南+ 论坛首页"
+          },
+          "kind": "mapkey",
+          "domain": "spring-plus.net",
+          "callbackRequired": true
+        },
+        {
+          "id": "cha-guan-spring",
+          "alias": "c",
+          "description": {
+            "en": "[Spring Plus 镜像] Open Cha-Guan (Tea House, fid 9)",
+            "zh-CN": "[Spring Plus 镜像] 南+ 茶馆综合讨论区 (fid 9)"
+          },
+          "kind": "mapkey",
+          "domain": "spring-plus.net",
+          "callbackRequired": true
+        },
+        {
+          "id": "ai-spring",
+          "alias": "a",
+          "description": {
+            "en": "[Spring Plus 镜像] Open AI Discussion (fid 208)",
+            "zh-CN": "[Spring Plus 镜像] 南+ AI交流(beta) (fid 208)"
+          },
+          "kind": "mapkey",
+          "domain": "spring-plus.net",
+          "callbackRequired": true
+        },
+        {
+          "id": "han-hua-spring",
+          "alias": "b",
+          "description": {
+            "en": "[Spring Plus 镜像] Open Translated Doujinshi & CG (fid 36)",
+            "zh-CN": "[Spring Plus 镜像] 南+ 汉化本发布区 (fid 36)"
+          },
+          "kind": "mapkey",
+          "domain": "spring-plus.net",
+          "callbackRequired": true
+        },
+        {
+          "id": "xiao-shuo-spring",
+          "alias": "x",
+          "description": {
+            "en": "[Spring Plus 镜像] Open Original Novels (fid 195)",
+            "zh-CN": "[Spring Plus 镜像] 南+ 原创小说区 (fid 195)"
+          },
+          "kind": "mapkey",
+          "domain": "spring-plus.net",
+          "callbackRequired": true
+        },
+        {
+          "id": "home-summer",
+          "alias": "h",
+          "description": {
+            "en": "[Summer Plus 镜像] Go to South Plus home page",
+            "zh-CN": "[Summer Plus 镜像] 南+ 论坛首页"
+          },
+          "kind": "mapkey",
+          "domain": "summer-plus.net",
+          "callbackRequired": true
+        },
+        {
+          "id": "cha-guan-summer",
+          "alias": "c",
+          "description": {
+            "en": "[Summer Plus 镜像] Open Cha-Guan (Tea House, fid 9)",
+            "zh-CN": "[Summer Plus 镜像] 南+ 茶馆综合讨论区 (fid 9)"
+          },
+          "kind": "mapkey",
+          "domain": "summer-plus.net",
+          "callbackRequired": true
+        },
+        {
+          "id": "ai-summer",
+          "alias": "a",
+          "description": {
+            "en": "[Summer Plus 镜像] Open AI Discussion (fid 208)",
+            "zh-CN": "[Summer Plus 镜像] 南+ AI交流(beta) (fid 208)"
+          },
+          "kind": "mapkey",
+          "domain": "summer-plus.net",
+          "callbackRequired": true
+        },
+        {
+          "id": "han-hua-summer",
+          "alias": "b",
+          "description": {
+            "en": "[Summer Plus 镜像] Open Translated Doujinshi & CG (fid 36)",
+            "zh-CN": "[Summer Plus 镜像] 南+ 汉化本发布区 (fid 36)"
+          },
+          "kind": "mapkey",
+          "domain": "summer-plus.net",
+          "callbackRequired": true
+        },
+        {
+          "id": "xiao-shuo-summer",
+          "alias": "x",
+          "description": {
+            "en": "[Summer Plus 镜像] Open Original Novels (fid 195)",
+            "zh-CN": "[Summer Plus 镜像] 南+ 原创小说区 (fid 195)"
+          },
+          "kind": "mapkey",
+          "domain": "summer-plus.net",
+          "callbackRequired": true
+        },
+        {
+          "id": "home-blue",
+          "alias": "h",
+          "description": {
+            "en": "[Blue Plus 镜像] Go to South Plus home page",
+            "zh-CN": "[Blue Plus 镜像] 南+ 论坛首页"
+          },
+          "kind": "mapkey",
+          "domain": "blue-plus.net",
+          "callbackRequired": true
+        },
+        {
+          "id": "cha-guan-blue",
+          "alias": "c",
+          "description": {
+            "en": "[Blue Plus 镜像] Open Cha-Guan (Tea House, fid 9)",
+            "zh-CN": "[Blue Plus 镜像] 南+ 茶馆综合讨论区 (fid 9)"
+          },
+          "kind": "mapkey",
+          "domain": "blue-plus.net",
+          "callbackRequired": true
+        },
+        {
+          "id": "ai-blue",
+          "alias": "a",
+          "description": {
+            "en": "[Blue Plus 镜像] Open AI Discussion (fid 208)",
+            "zh-CN": "[Blue Plus 镜像] 南+ AI交流(beta) (fid 208)"
+          },
+          "kind": "mapkey",
+          "domain": "blue-plus.net",
+          "callbackRequired": true
+        },
+        {
+          "id": "han-hua-blue",
+          "alias": "b",
+          "description": {
+            "en": "[Blue Plus 镜像] Open Translated Doujinshi & CG (fid 36)",
+            "zh-CN": "[Blue Plus 镜像] 南+ 汉化本发布区 (fid 36)"
+          },
+          "kind": "mapkey",
+          "domain": "blue-plus.net",
+          "callbackRequired": true
+        },
+        {
+          "id": "xiao-shuo-blue",
+          "alias": "x",
+          "description": {
+            "en": "[Blue Plus 镜像] Open Original Novels (fid 195)",
+            "zh-CN": "[Blue Plus 镜像] 南+ 原创小说区 (fid 195)"
+          },
+          "kind": "mapkey",
+          "domain": "blue-plus.net",
+          "callbackRequired": true
+        },
+        {
+          "id": "home-imouto",
+          "alias": "h",
+          "description": {
+            "en": "[Imouto Love 镜像] Go to South Plus home page",
+            "zh-CN": "[Imouto Love 镜像] 南+ 论坛首页"
+          },
+          "kind": "mapkey",
+          "domain": "imoutolove.me",
+          "callbackRequired": true
+        },
+        {
+          "id": "cha-guan-imouto",
+          "alias": "c",
+          "description": {
+            "en": "[Imouto Love 镜像] Open Cha-Guan (Tea House, fid 9)",
+            "zh-CN": "[Imouto Love 镜像] 南+ 茶馆综合讨论区 (fid 9)"
+          },
+          "kind": "mapkey",
+          "domain": "imoutolove.me",
+          "callbackRequired": true
+        },
+        {
+          "id": "ai-imouto",
+          "alias": "a",
+          "description": {
+            "en": "[Imouto Love 镜像] Open AI Discussion (fid 208)",
+            "zh-CN": "[Imouto Love 镜像] 南+ AI交流(beta) (fid 208)"
+          },
+          "kind": "mapkey",
+          "domain": "imoutolove.me",
+          "callbackRequired": true
+        },
+        {
+          "id": "han-hua-imouto",
+          "alias": "b",
+          "description": {
+            "en": "[Imouto Love 镜像] Open Translated Doujinshi & CG (fid 36)",
+            "zh-CN": "[Imouto Love 镜像] 南+ 汉化本发布区 (fid 36)"
+          },
+          "kind": "mapkey",
+          "domain": "imoutolove.me",
+          "callbackRequired": true
+        },
+        {
+          "id": "xiao-shuo-imouto",
+          "alias": "x",
+          "description": {
+            "en": "[Imouto Love 镜像] Open Original Novels (fid 195)",
+            "zh-CN": "[Imouto Love 镜像] 南+ 原创小说区 (fid 195)"
+          },
+          "kind": "mapkey",
+          "domain": "imoutolove.me",
+          "callbackRequired": true
+        },
+        {
+          "id": "home-east",
+          "alias": "h",
+          "description": {
+            "en": "[East Plus 镜像] Go to South Plus home page",
+            "zh-CN": "[East Plus 镜像] 南+ 论坛首页"
+          },
+          "kind": "mapkey",
+          "domain": "east-plus.net",
+          "callbackRequired": true
+        },
+        {
+          "id": "cha-guan-east",
+          "alias": "c",
+          "description": {
+            "en": "[East Plus 镜像] Open Cha-Guan (Tea House, fid 9)",
+            "zh-CN": "[East Plus 镜像] 南+ 茶馆综合讨论区 (fid 9)"
+          },
+          "kind": "mapkey",
+          "domain": "east-plus.net",
+          "callbackRequired": true
+        },
+        {
+          "id": "ai-east",
+          "alias": "a",
+          "description": {
+            "en": "[East Plus 镜像] Open AI Discussion (fid 208)",
+            "zh-CN": "[East Plus 镜像] 南+ AI交流(beta) (fid 208)"
+          },
+          "kind": "mapkey",
+          "domain": "east-plus.net",
+          "callbackRequired": true
+        },
+        {
+          "id": "han-hua-east",
+          "alias": "b",
+          "description": {
+            "en": "[East Plus 镜像] Open Translated Doujinshi & CG (fid 36)",
+            "zh-CN": "[East Plus 镜像] 南+ 汉化本发布区 (fid 36)"
+          },
+          "kind": "mapkey",
+          "domain": "east-plus.net",
+          "callbackRequired": true
+        },
+        {
+          "id": "xiao-shuo-east",
+          "alias": "x",
+          "description": {
+            "en": "[East Plus 镜像] Open Original Novels (fid 195)",
+            "zh-CN": "[East Plus 镜像] 南+ 原创小说区 (fid 195)"
+          },
+          "kind": "mapkey",
+          "domain": "east-plus.net",
+          "callbackRequired": true
+        }
+      ]
+    },
+    "search-engines.south-plus": {
+      "entry": "dist/search-engines/south-plus.js",
+      "description": {
+        "en": "South Plus forum search",
+        "zh-CN": "南+ (South Plus) 论坛搜索"
+      },
+      "requires": [],
+      "capabilities": [],
+      "contributions": [
+        {
+          "id": "search",
+          "kind": "search",
+          "alias": "\\sp",
+          "name": "south-plus",
+          "search": "https://south-plus.net/search.php?step=2&keyword=",
+          "callbackRequired": true,
+          "description": {
+            "en": "South Plus forum search",
+            "zh-CN": "南+ 论坛搜索"
+          }
+        }
+      ]
+    },
+    "search-engines.2dfan": {
+      "entry": "dist/search-engines/2dfan.js",
+      "description": {
+        "en": "2DFan Galgame search",
+        "zh-CN": "2DFan 二次元 Galgame 搜索"
+      },
+      "requires": [],
+      "capabilities": [],
+      "contributions": [
+        {
+          "id": "search",
+          "kind": "search",
+          "alias": "\\2df",
+          "name": "2dfan",
+          "search": "https://www.2dfan.com/subjects/search?keyword=",
+          "callbackRequired": true,
+          "description": {
+            "en": "2DFan Galgame search",
+            "zh-CN": "2DFan Galgame 搜索"
+          }
+        }
+      ]
+    },
+    "search-engines.vndb": {
+      "entry": "dist/search-engines/vndb.js",
+      "description": {
+        "en": "VNDB visual novel database search",
+        "zh-CN": "VNDB 视觉小说数据库搜索"
+      },
+      "requires": [],
+      "capabilities": [],
+      "contributions": [
+        {
+          "id": "search",
+          "kind": "search",
+          "alias": "\\vn",
+          "name": "vndb",
+          "search": "https://vndb.org/v?sq=",
+          "callbackRequired": true,
+          "description": {
+            "en": "VNDB visual novel search",
+            "zh-CN": "VNDB 视觉小说搜索"
+          }
+        }
+      ]
+    },
+    "search-engines.cool18": {
+      "entry": "dist/search-engines/cool18.js",
+      "description": {
+        "en": "Cool18 Jinji Shuwu novel search",
+        "zh-CN": "禁忌书屋 (Cool18) 小说搜索"
+      },
+      "requires": [],
+      "capabilities": [],
+      "contributions": [
+        {
+          "id": "search",
+          "kind": "search",
+          "alias": "\\sw",
+          "name": "cool18-sw",
+          "search": "https://www.cool18.com/bbs4/index.php?app=forum&act=threadsearch&keywords=",
+          "callbackRequired": true,
+          "description": {
+            "en": "Cool18 Jinji Shuwu novel search",
+            "zh-CN": "禁忌书屋小说搜索"
+          }
+        }
+      ]
+    }
+  }
+}
